@@ -1,0 +1,41 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model NorthwindWeb.Pages.ProductsModel
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron">
+    <div class="row">
+        @*<h1 class="display-2">Suppliers</h1>
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr><th>Company Name</th></tr>
+            </thead>
+            <tbody>
+                @foreach (string name in Model.Products)
+                {
+                    <tr><td>@name</td></tr>
+                }
+            </tbody>
+        </table>*@
+
+       
+            @{int c = 1;}
+            @foreach (string name in Model.Categories)
+
+            {
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                        <img class="card-img-top" src="~/category@(c.ToString())-small.jpeg" alt="Card image cap">
+                          <div class="card-body" style="text-align: center">
+                            <h4 class="card-title" style="text-align: center">@name</h4>
+                            <button type="button" class="btn btn-primary">GoTo</button>
+                    </div>
+                    </div>
+                </div>
+                c++;
+            }
+        </div>
+    </div>
